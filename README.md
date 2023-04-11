@@ -1,4 +1,4 @@
 # Control contable app
 
-Desarrollo de una aplicación movil 
+Desarrollo de una aplicación móvil 
 
