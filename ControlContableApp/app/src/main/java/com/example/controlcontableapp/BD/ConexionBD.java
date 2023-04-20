@@ -1,4 +1,4 @@
-package com.example.controlcontableapp;
+package com.example.controlcontableapp.BD;
 
 import android.annotation.SuppressLint;
 import android.os.StrictMode;
