@@ -1,5 +1,7 @@
 package com.example.controlcontableapp;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.controlcontableapp.BD.ConexionBD;
+import com.example.controlcontableapp.modelo.modeloLogin;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,15 +19,15 @@ import java.sql.Statement;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Connection conectado;
+    ConexionBD conexionBD;
     String ConexionResultado="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //llamamos la caja de texto del loyout usuario y password login
-        TextView usuario = (TextView)findViewById(R.id.usuario);
-        TextView password = (TextView)findViewById(R.id.password);
+        TextView txusuario = (TextView)findViewById(R.id.usuario);
+        TextView txpassword = (TextView)findViewById(R.id.password);
         TextView msg = (TextView)findViewById(R.id.resultado);
 
         //llamamos al boton que esta en el loyout login
@@ -33,26 +36,43 @@ public class LoginActivity extends AppCompatActivity {
         btnentrar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Connection conn = ConexionBD.Conn();
+                Connection conn = conexionBD.Conn();
+                if(conn == null) {
+                    Toast.makeText(LoginActivity.this, "Error Conexion", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 try{
 
-                    if(conn!=null){
-                        String query ="Select * from usuario";
+                        String query ="exec dbo.login '"+ txusuario.getText().toString()+"','"+txpassword.getText().toString()+"'";
                         Statement statement = conn.createStatement();
-                        ResultSet ConexionResultado = statement.executeQuery(query);
+                        ResultSet resultSet = statement.executeQuery(query);
 
-                        msg.setText("Conectado a la BD SQL SERVER !!!!");
+                    if(resultSet.next()){
+                        String perfil = resultSet.getString("perfil");
 
-                    }else{
-                        Toast.makeText(LoginActivity.this, "Tipo de error:", Toast.LENGTH_LONG).show();
-                        return;
+                        if(perfil.equals("Administrador")){
+                            // Si el usuario es administrador, mostrar la actividad correspondiente
+                            Intent intent = new Intent(LoginActivity.this, MenuAdminActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } if(perfil.equals("Usuario")) {
+                            // Si es usuario , mostrar la actividad correspondiente
+                            Intent intent = new Intent(LoginActivity.this, MenuUsuarioActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Usuario y/o contraseña incorrecta", Toast.LENGTH_LONG).show();
                     }
+
                 } catch (SQLException erro) {
-                    Toast.makeText(LoginActivity.this, "tipo de error: " + erro, Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Error: " + erro, Toast.LENGTH_LONG).show();
                 }
 
             }
         });
+
+
         //Desaparece el titulo del cuadro de texto, cuando el usuario ingresa su usuario (para usar esta función, se importaron las librearias View, Edit text )
         TextView editUsuario = (TextView) findViewById(R.id.usuario);
 

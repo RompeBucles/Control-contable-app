@@ -1,19 +1,14 @@
 package com.example.controlcontableapp;
 
-
-
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-
-
-public class MenuActivity extends AppCompatActivity {
-
+public class MenuUsuarioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-
+        setContentView(R.layout.activity_menu_usuario);
     }
 }
