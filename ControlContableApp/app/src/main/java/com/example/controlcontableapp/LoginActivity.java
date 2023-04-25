@@ -54,12 +54,12 @@ public class LoginActivity extends AppCompatActivity {
                             // Si el usuario es administrador, mostrar la actividad correspondiente
                             Intent intent = new Intent(LoginActivity.this, MenuAdminActivity.class);
                             startActivity(intent);
-                            finish();
+
                         } if(perfil.equals("Usuario")) {
                             // Si es usuario , mostrar la actividad correspondiente
                             Intent intent = new Intent(LoginActivity.this, MenuUsuarioActivity.class);
                             startActivity(intent);
-                            finish();
+
                         }
                     } else {
                         Toast.makeText(LoginActivity.this, "Usuario y/o contraseña incorrecta", Toast.LENGTH_LONG).show();
