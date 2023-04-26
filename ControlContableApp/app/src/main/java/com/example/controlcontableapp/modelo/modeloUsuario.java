@@ -6,6 +6,7 @@ public class modeloUsuario {
     private String usuario;
     private String cargo;
     private String perfil;
+    private boolean status;
     private String fechaAlta;
 
     public int getId(){return id;}
@@ -18,6 +19,8 @@ public class modeloUsuario {
     public void setCargo(String cargo) {this.cargo = cargo;}
     public String getPerfil(){return perfil;}
     public void setPerfil(String perfil){this.perfil = perfil;}
+    public boolean getStatus(){return status;}
+    public void setStatus(boolean status){this.status = status;}
     public String getFechaAlta(){return fechaAlta;}
     public void setFechaAlta(String fechaAlta){this.fechaAlta = fechaAlta;}
 }

@@ -105,6 +105,7 @@ public class ListaUsuariosActivity extends AppCompatActivity {
                 usuario.setUsuario(resultSet.getString("usuario"));
                 usuario.setCargo(resultSet.getString("cargo"));
                 usuario.setPerfil(resultSet.getString("perfil"));
+                usuario.setStatus(resultSet.getBoolean("status"));
                 usuario.setFechaAlta(resultSet.getString("fechaAlta"));
 
 

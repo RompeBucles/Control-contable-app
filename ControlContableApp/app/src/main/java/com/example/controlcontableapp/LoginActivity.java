@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         //llamamos la caja de texto del loyout usuario y password login
         TextView txusuario = (TextView)findViewById(R.id.usuario);
         TextView txpassword = (TextView)findViewById(R.id.password);
-        TextView msg = (TextView)findViewById(R.id.resultado);
+
 
         //llamamos al boton que esta en el loyout login
         Button btnentrar = (Button)findViewById(R.id.entrar);

@@ -42,6 +42,17 @@
                 android:layout_toRightOf="@+id/iconUsuario">
 
                 <TextView
+                    android:id="@+id/txtItemId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:text="id"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+
+                <TextView
                     android:id="@+id/txtItemNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -62,16 +73,25 @@
                     android:id="@+id/txtItemCargo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Jefe"
+                    android:text="Administrativo Especializado"
                     android:textColor="@android:color/black"
-                    android:textSize="24sp"/>
+                    android:textSize="23sp"/>
                 <TextView
                     android:id="@+id/txtItemPerfil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Administrador"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/txtItemStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Activo"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txtItemFechaAlta"
                     android:layout_width="match_parent"

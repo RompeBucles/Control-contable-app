@@ -9,26 +9,42 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.controlcontableapp.BD.ConexionBD;
 import com.example.controlcontableapp.CrearUsuariosActivity;
-import com.example.controlcontableapp.LoginActivity;
 import com.example.controlcontableapp.R;
+import com.example.controlcontableapp.controlador.controladorUsuario;
 import com.example.controlcontableapp.modelo.modeloUsuario;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 
 public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.UsuariosViewHolder> {
-
+    ConexionBD conexionBD;
+    controladorUsuario eliminarUsuario;
     private Context ctx;
     private List<modeloUsuario> lista;
 
+    public void removeItemById(int id) {
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getId() == id) { // getId() es un método de la clase Note que devuelve el ID de la nota
+                lista.remove(i); // Elimina el objeto de la lista
+                notifyItemRemoved(i); // Notifica al RecyclerView que se eliminó un elemento en la posición correspondiente
+                break; // Sale del bucle una vez que se encuentra y elimina el elemento deseado
+            }
+        }
+    }
+
     public class UsuariosViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txtItemNombre, txtItemUsuario,txtItemCargo,txtItemPerfil, txtItemFechaAlta;
+        TextView txtItemNombre, txtItemUsuario,txtItemCargo,txtItemPerfil,txtItemStatus, txtItemFechaAlta;
         ImageView btnItemElimar, btnItemModificar;
 
         public UsuariosViewHolder(@NonNull View itemView) {
@@ -38,17 +54,21 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.Usuari
             txtItemUsuario = (TextView) itemView.findViewById(R.id.txtItemUsuario);
             txtItemCargo = (TextView) itemView.findViewById(R.id.txtItemCargo);
             txtItemPerfil = (TextView) itemView.findViewById(R.id.txtItemPerfil);
+            txtItemStatus =(TextView) itemView.findViewById(R.id.txtItemStatus);
             txtItemFechaAlta = (TextView) itemView.findViewById(R.id.txtItemFechaAlta);
-
             btnItemElimar = (ImageView) itemView.findViewById(R.id.btnItemElimar);
             btnItemModificar = (ImageView) itemView.findViewById(R.id.btnItemModificar);
         }
+
+
     }
 
     public UsuariosAdapter(Context ctx, List<modeloUsuario> lista) {
         this.ctx = ctx;
         this.lista = lista;
+
     }
+
 
     @NonNull
     @Override
@@ -67,7 +87,15 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.Usuari
         holder.txtItemUsuario.setText(usuario.getUsuario());
         holder.txtItemCargo.setText(usuario.getCargo());
         holder.txtItemPerfil.setText(usuario.getPerfil());
+        if (usuario.getStatus()) {
+            holder.txtItemStatus.setText("Vigente");
+        } else {
+            holder.txtItemStatus.setText("No vigente");
+        }
         holder.txtItemFechaAlta.setText(usuario.getFechaAlta());
+
+
+
 
         holder.btnItemModificar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +107,8 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.Usuari
             }
         });
 
+
+
         holder.btnItemElimar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,8 +119,30 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.Usuari
                 builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Código para eliminar el usuario aquí
-                    }
+
+                        Connection conn = conexionBD.Conn();
+                                if(conn == null) {
+                                    Toast.makeText(ctx, "Error", Toast.LENGTH_LONG).show();
+                                    return;
+                                }
+                                String id = String.valueOf(usuario.getId());
+                                if(!id.isEmpty())  {
+
+                                    removeItemById(Integer.parseInt(id));
+
+                                    try {
+                                        String QUERY = "exec dbo.eliminarUsuario " + id;
+                                        Statement statement = conn.createStatement();
+                                        boolean resultSet = statement.execute(QUERY);
+
+                                    } catch (SQLException erro) {
+                                        Toast.makeText(ctx, "Error: " + erro, Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+                            }
+
+
                 });
                 builder.setNegativeButton("No", null);
                 builder.show();
