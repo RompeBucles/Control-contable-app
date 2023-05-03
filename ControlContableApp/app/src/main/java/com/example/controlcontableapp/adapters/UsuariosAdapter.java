@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.controlcontableapp.BD.ConexionBD;
 import com.example.controlcontableapp.CrearUsuariosActivity;
+import com.example.controlcontableapp.EditarUsuarioActivity;
 import com.example.controlcontableapp.R;
 import com.example.controlcontableapp.controlador.controladorUsuario;
 import com.example.controlcontableapp.modelo.modeloUsuario;
@@ -101,7 +103,7 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.Usuari
             @Override
             public void onClick(View view) {
 
-                Intent abreForm = new Intent(ctx, CrearUsuariosActivity.class);
+                Intent abreForm = new Intent(ctx, EditarUsuarioActivity.class);
                 abreForm.putExtra("id", usuario.getId());
                 ctx.startActivity(abreForm);
             }
@@ -137,6 +139,14 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.Usuari
 
                                     } catch (SQLException erro) {
                                         Toast.makeText(ctx, "Error: " + erro, Toast.LENGTH_LONG).show();
+                                    }finally {
+                                        try {
+                                            if (conn != null) {
+                                                conn.close();
+                                            }
+                                        } catch (SQLException e) {
+                                            Log.d("CONEXAO_MSSQL", e.getMessage());
+                                        }
                                     }
 
                                 }

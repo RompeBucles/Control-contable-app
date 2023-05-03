@@ -7,12 +7,14 @@ public class modeloUsuario {
     private String cargo;
     private String perfil;
     private boolean status;
+    private String contrasena;
     private String fechaAlta;
 
     public int getId(){return id;}
     public void setId(int id){this.id = id;}
     public String getNombre(){return nombre;}
     public void setNombre(String nombre){this.nombre = nombre;}
+
     public String getUsuario(){return usuario;}
     public void setUsuario(String usuario) {this.usuario = usuario;}
     public String getCargo(){return cargo;}
@@ -21,6 +23,8 @@ public class modeloUsuario {
     public void setPerfil(String perfil){this.perfil = perfil;}
     public boolean getStatus(){return status;}
     public void setStatus(boolean status){this.status = status;}
+    public String getContrasena(){return contrasena;}
+    public void setContrasena(String contrasena){this.contrasena = contrasena;}
     public String getFechaAlta(){return fechaAlta;}
     public void setFechaAlta(String fechaAlta){this.fechaAlta = fechaAlta;}
 }

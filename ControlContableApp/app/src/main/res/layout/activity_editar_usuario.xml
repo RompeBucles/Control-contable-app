@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CrearUsuariosActivity">
+    tools:context=".EditarUsuarioActivity">
 
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registro usuarios"
+        android:text="Editar usuario"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -20,6 +20,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.057" />
+
+    <EditText
+        android:id="@+id/lblIds"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Id"
+        android:inputType=""
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.147" />
 
     <EditText
         android:id="@+id/lblNombre"
@@ -41,7 +57,7 @@
         android:layout_height="49dp"
         android:ems="10"
         android:hint="Usuario"
-        android:inputType="textPersonName"
+        android:editable="false"
         android:textColorHint="#999999"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +69,8 @@
         android:id="@+id/boxCargo"
         android:layout_width="269dp"
         android:layout_height="42dp"
-        android:prompt="@string/seleccionCargo"
+
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.584"
@@ -73,7 +90,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.56" />
 -->
-
     <EditText
         android:id="@+id/lblContrasena"
         android:layout_width="249dp"
@@ -102,19 +118,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.808" />
 
-    <EditText
-        android:id="@+id/lblConfiContrasena"
-        android:layout_width="249dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="Confirmar contraseña"
-        android:inputType="textPassword"
-        android:textColorHint="#999999"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

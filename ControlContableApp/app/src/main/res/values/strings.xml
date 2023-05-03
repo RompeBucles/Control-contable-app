@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Control Contable App</string>
+    <string name="seleccionCargo">Seleccione cargo</string>
 </resources>

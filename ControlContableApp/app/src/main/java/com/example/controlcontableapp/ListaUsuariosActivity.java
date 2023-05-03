@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -63,7 +64,7 @@ public class ListaUsuariosActivity extends AppCompatActivity {
         recyclerViewUsuarios.addItemDecoration(new DividerItemDecoration(ListaUsuariosActivity.this, LinearLayoutManager.VERTICAL));
         recyclerViewUsuarios.setAdapter(usuarioAdapter);
 
-        listarUsuarios();
+     listarUsuarios();
 /*
         btnAtras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +117,14 @@ public class ListaUsuariosActivity extends AppCompatActivity {
 
         } catch (SQLException erro) {
             Toast.makeText(ListaUsuariosActivity.this, "ocurrio un error: " + erro, Toast.LENGTH_LONG).show();
+        }finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                Log.d("CONEXAO_MSSQL", e.getMessage());
+            }
         }
     }
 
