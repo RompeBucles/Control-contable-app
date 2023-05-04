@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Control Contable App</string>
+    <string name="item1">Papelería</string>
+    <string name="item2">Limpieza</string>
+    <string name="item3">Botiquín</string>
+    <string name="item4">Equipo de computo</string>
     <string name="seleccionCargo">Seleccione cargo</string>
 </resources>

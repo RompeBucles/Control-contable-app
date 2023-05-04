@@ -1,5 +1,4 @@
 package com.example.controlcontableapp.modelo;
-import java.util.Date;
 
 public class producto {
     private int id;
@@ -12,7 +11,7 @@ public class producto {
     private float precioUnitario;
 
 
-    public producto(int id, int factura, String producto, int categoria, String marca, int cantidad, int undadMedida, float precioUnitario) {
+    public void producto (int id, int factura, String producto, int categoria, String marca, int cantidad, int undadMedida, float precioUnitario) {
         this.id = id;
         this.factura = factura;
         this.producto = producto;

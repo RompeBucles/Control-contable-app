@@ -15,13 +15,15 @@ import java.sql.Connection;
 
 public class MenuAdminActivity extends AppCompatActivity {
     ConexionBD conexionBD;
-    ImageView btnUsuarios;
+    ImageView btnUsuarios, btnProductos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_admin);
 
         btnUsuarios = (ImageView) findViewById(R.id.btnUsuarios);
+        btnProductos = (ImageView) findViewById(R.id.btnProductos);
+
         btnUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,6 +33,19 @@ public class MenuAdminActivity extends AppCompatActivity {
                     return;
                 }
                 Intent intent = new Intent(MenuAdminActivity.this, ListaUsuariosActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnProductos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Connection conn = conexionBD.Conn();
+                if(conn == null) {
+                    Toast.makeText(MenuAdminActivity.this, "Error Conexion", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Intent intent = new Intent(MenuAdminActivity.this, ListaProductosActivity.class);
                 startActivity(intent);
             }
         });

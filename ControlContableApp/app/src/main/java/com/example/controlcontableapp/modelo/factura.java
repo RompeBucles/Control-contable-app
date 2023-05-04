@@ -6,7 +6,7 @@ public class factura {
     private String numeroFactura;
     private int proveedor;
     private String folioFiscal;
-    private Date fechaEmision;
+    private String fechaEmision;
     private String certificadoSat;
     private String noCertificado;
     private String tipoComprobante;
@@ -16,7 +16,7 @@ public class factura {
     private float total;
 
 
-    public factura(int id, String numeroFactura, int proveedor, String folioFiscal, Date fechaEmision, String certificadoSat, String noCertificado, String tipoComprobante, String metodoPago, String formaPago, String moneda, float total) {
+    public void factura(int id, String numeroFactura, int proveedor, String folioFiscal, String fechaEmision, String certificadoSat, String noCertificado, String tipoComprobante, String metodoPago, String formaPago, String moneda, float total) {
         this.id = id;
         this.numeroFactura = numeroFactura;
         this.proveedor = proveedor;
@@ -30,6 +30,7 @@ public class factura {
         this.moneda = moneda;
         this.total = total;
     }
+
 
     public int getId() {
         return id;
@@ -63,11 +64,11 @@ public class factura {
         this.folioFiscal = folioFiscal;
     }
 
-    public Date getFechaEmision() {
+    public String getFechaEmision() {
         return fechaEmision;
     }
 
-    public void setFechaEmision(Date fechaEmision) {
+    public void setFechaEmision(String fechaEmision) {
         this.fechaEmision = fechaEmision;
     }
 

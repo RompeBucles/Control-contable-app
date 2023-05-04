@@ -101,6 +101,7 @@ public class ListaUsuariosActivity extends AppCompatActivity {
 
             while(resultSet.next()) {
                 modeloUsuario usuario = new modeloUsuario();
+
                 usuario.setId(resultSet.getInt("id"));
                 usuario.setNombre(resultSet.getString("nombre"));
                 usuario.setUsuario(resultSet.getString("usuario"));

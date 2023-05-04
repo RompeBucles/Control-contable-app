@@ -16,6 +16,7 @@ public class modeloUsuario {
     public void setNombre(String nombre){this.nombre = nombre;}
 
     public String getUsuario(){return usuario;}
+
     public void setUsuario(String usuario) {this.usuario = usuario;}
     public String getCargo(){return cargo;}
     public void setCargo(String cargo) {this.cargo = cargo;}

@@ -5,7 +5,7 @@ public class unidadMedida {
     private char clave;
     private String valor;
 
-    public unidadMedida(int id, char clave, String valor) {
+    public void unidadMedida(int id, char clave, String valor) {
         this.id = id;
         this.clave = clave;
         this.valor = valor;
