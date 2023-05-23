@@ -5,4 +5,6 @@
     <string name="item3">Botiquín</string>
     <string name="item4">Equipo de computo</string>
     <string name="seleccionCargo">Seleccione cargo</string>
+    <string name="seleccionEntidad">Seleccione cargo</string>
+    <string name="seleccionMunicipio">Seleccione cargo</string>
 </resources>

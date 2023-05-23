@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modProvF">
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="727dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp">
+
+        <TextView
+            android:id="@+id/textTitPRovF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modificar proveedor"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023" />
+
+        <EditText
+            android:id="@+id/lblNombre"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:editable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <EditText
+            android:id="@+id/lblApUno"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:editable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Primer apellido"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <EditText
+            android:id="@+id/lblApDos"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:editable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Segundo apellido"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <EditText
+            android:id="@+id/lblRfc"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:editable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="RFC"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <EditText
+            android:id="@+id/lblActEcon"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:editable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Actividad económica"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <EditText
+            android:id="@+id/lblRegistro"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:allowUndo="false"
+            android:editable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Registro SEFIPLAN"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <EditText
+            android:id="@+id/lblTelefono"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:ems="10"
+            android:hint="Número de contacto"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <EditText
+            android:id="@+id/lblCorreo"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:ems="10"
+            android:hint="Correo electrónico"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <EditText
+            android:id="@+id/lblDireccion"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:ems="10"
+            android:hint="Direccion"
+            android:inputType="textPersonName"
+            android:textColorHint="#999999" />
+
+        <Spinner
+            android:id="@+id/boxEntidad"
+            android:layout_width="269dp"
+            android:layout_height="42dp"
+            android:prompt="@string/seleccionEntidad" />
+
+        <Spinner
+            android:id="@+id/boxMunicipio"
+            android:layout_width="269dp"
+            android:layout_height="42dp"
+            android:prompt="@string/seleccionMunicipio" />
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAzul"
+            android:text="Guardar"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.808" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

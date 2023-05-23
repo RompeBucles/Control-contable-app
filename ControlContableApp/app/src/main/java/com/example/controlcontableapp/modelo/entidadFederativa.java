@@ -2,13 +2,16 @@ package com.example.controlcontableapp.modelo;
 
 public class entidadFederativa {
     private int id;
-    private char clave;
+    private String clave;
     private String valor;
 
-    public entidadFederativa(int id, char clave, String valor) {
+    public entidadFederativa(int id, String clave, String valor) {
         this.id = id;
         this.clave = clave;
         this.valor = valor;
+    }
+
+    public entidadFederativa() {
     }
 
     public int getId() {
@@ -19,15 +22,15 @@ public class entidadFederativa {
         this.id = id;
     }
 
-    public char getClave() {
+    public String getClave() {
         return clave;
     }
 
-    public void setClave(char clave) {
+    public void setClave(String clave) {
         this.clave = clave;
     }
 
-    public String getValor() {
+    public String toString() {
         return valor;
     }
 

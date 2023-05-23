@@ -16,6 +16,30 @@
         android:theme="@style/Theme.ControlContableApp"
         tools:targetApi="31">
         <activity
+            android:name=".kardexList"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modProvM"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modProvF"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".crearProveedorM"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".crearProfveedorF"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".proveedores"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ListaProductosActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>

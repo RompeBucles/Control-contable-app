@@ -15,7 +15,7 @@ import java.sql.Connection;
 
 public class MenuAdminActivity extends AppCompatActivity {
     ConexionBD conexionBD;
-    ImageView btnUsuarios, btnProductos;
+    ImageView btnUsuarios, btnProductos, btnProveedores, btnKardex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,8 @@ public class MenuAdminActivity extends AppCompatActivity {
 
         btnUsuarios = (ImageView) findViewById(R.id.btnUsuarios);
         btnProductos = (ImageView) findViewById(R.id.btnProductos);
+        btnProveedores = (ImageView) findViewById(R.id.btnProveedores);
+        btnKardex = (ImageView) findViewById(R.id.btnKardex);
 
         btnUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,32 @@ public class MenuAdminActivity extends AppCompatActivity {
                     return;
                 }
                 Intent intent = new Intent(MenuAdminActivity.this, ListaProductosActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnProveedores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Connection conn = conexionBD.Conn();
+                if(conn == null) {
+                    Toast.makeText(MenuAdminActivity.this, "Error Conexion", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Intent intent = new Intent(MenuAdminActivity.this, proveedores.class);
+                startActivity(intent);
+            }
+        });
+
+        btnKardex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Connection conn = conexionBD.Conn();
+                if(conn == null) {
+                    Toast.makeText(MenuAdminActivity.this, "Error Conexion", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Intent intent = new Intent(MenuAdminActivity.this, kardexList.class);
                 startActivity(intent);
             }
         });
