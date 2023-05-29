@@ -118,6 +118,7 @@ public class EditarUsuarioActivity extends AppCompatActivity {
                 }
 
 
+            try {
 
 
                     String id = lblIds.getText().toString();
@@ -129,9 +130,15 @@ public class EditarUsuarioActivity extends AppCompatActivity {
                     usuario.setCargo(boxCargo.getSelectedItem().toString());
                     usuario.setContrasena(lblContrasena.getText().toString());
 
-                if(retorno){
-                    resultado = controladorUsuario.actulizarUsuario(conn, usuario);
-                }
+                    if(retorno){
+                        resultado = controladorUsuario.actulizarUsuario(conn, usuario);
+                    }
+
+                }catch (Exception e){
+                Toast.makeText(EditarUsuarioActivity.this, "ocurrio: " + e, Toast.LENGTH_LONG).show();
+            }
+
+
 
 
 

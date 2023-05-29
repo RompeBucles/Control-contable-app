@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Control Contable App</string>
+    <string name="app_name"></string>
     <string name="item1">Papelería</string>
     <string name="item2">Limpieza</string>
     <string name="item3">Botiquín</string>
