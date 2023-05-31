@@ -192,12 +192,12 @@ public class CrearUsuariosActivity extends AppCompatActivity {
                     retorno=false;
                 }
 
-                /*
-                if (c4.length() < 6) {
-                    lblContrasena.setError("La contraseña debe tener al menos 6 caracteres");
+
+                if (c4.length() < 8) {
+                    lblContrasena.setError("La contraseña debe tener al menos 8 caracteres");
                     retorno=false;
                 }
-                */
+
 
                 //es diferente a la contraseña y el .equal compara el objeto
                 if (!c5.equals(c4)) {

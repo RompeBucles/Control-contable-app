@@ -97,8 +97,8 @@ public class EditarUsuarioActivity extends AppCompatActivity {
                     ((TextView) boxCargo.getSelectedView()).setError("Debe seleccionar una opción");
                     retorno=false;
                 }
-                if(c4.isEmpty()){
-                    lblContrasena.setError("Este campo no puede quedar vacío");
+                if(c4.length() < 8){
+                    lblContrasena.setError("La contraseña debe tener al menos 8 caracteres");
                     retorno=false;
                 }
                 if (c1.isEmpty() || c2.isEmpty() || boxCargo.equals("Seleccione cargo")|| c4.isEmpty()){
